@@ -1,7 +1,14 @@
 var Emitter = require('emitter-component');
 var MemoryStore = require('./lib/memory');
+var _ = require( 'underscore' );
 
 module.exports = Tubbs;
+
+String.prototype.camelize = function () {
+  return this.replace (/(?:^|[-_])(\w)/g, function (_, c) {
+    return c ? c.toUpperCase () : '';
+  })
+}
 
 function isEventEmitter(object) {
   return object
@@ -27,6 +34,7 @@ var createId = (function() {
 })();
 
 // Take a function and mixes in model functionality.
+// clazz is optional
 function Tubbs(fn, options) {
   var primary = getAndDelete(options, 'primaryKey', null);
   var dataStore = getAndDelete(options, 'dataStore', new MemoryStore());
@@ -209,6 +217,13 @@ function Tubbs(fn, options) {
   // Remaining options will be property descriptors:
   for (var name in options) {
     descriptor[name] = options[name];
+  }
+
+  // set class if defined for constructor
+  if (_.isString(fn.prototype.clazz)) {
+    var clazz = fn.prototype.clazz;
+    descriptor.clazzName = clazz.camelize();
+    descriptor.collectionName = inflector.pluralize(clazz).camelize();
   }
 
   fn.prototype = Object.create(fn.prototype || {}, descriptor);

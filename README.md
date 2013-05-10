@@ -26,6 +26,8 @@ function User(data) {
   this.setData(data);
 }
 
+User.prototype.clazz = 'user';
+
 Tubbs(User, {
   dataStore: new Memory(User),
   basicProperties: ['username', 'first', 'last'],
@@ -34,6 +36,16 @@ Tubbs(User, {
     Validate.lengthOf("username", { min: 5 })
   ],
 });
+
+Tubbs(User, {
+  dataStore: new RaceCar(User),
+  basicProperties: ['username', 'first', 'last'],
+  validation: [
+    Validate.required("username"),
+    Validate.lengthOf("username", { min: 5 })
+  ],
+});
+
 
 Object.defineProperty(User, 'name', {
   get: function() {

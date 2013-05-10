@@ -1,6 +1,6 @@
 // This file will get compiled by Modulr and served as /tubbs.js
 var assert = require('assert');
-var Memory = require('../lib/memory');
+var RaceCar = require('../lib/race_car');
 var Tubbs = require('../index');
 
 // Export the require function for easy console debugger.
@@ -12,11 +12,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
-    Tubbs(User, {
+    Tubbs(User, {      
+      clazz: 'user',
       primaryKey: 'id',
-      clazz: 'user'
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     [ 'primaryKey', 'dataStore',
@@ -33,8 +34,10 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
       basicProperties: ['first','last'],
       fullName: {
@@ -63,19 +66,23 @@ describe('Tubbs', function() {
     function Type1(data) {
       this.setData(data);
     }
+    Type1.prototype.clazz = 'user';
 
     Tubbs(Type1, {
+      clazz: 'type1',
       primaryKey: 'id',
-      dataStore: new Memory(Type1)
+      dataStore: new RaceCar(Type1)
     });
 
     function Type2(data) {
       this.setData(data);
     }
+    Type2.prototype.clazz = 'user';
 
     Tubbs(Type2, {
+      clazz: 'type2',
       primaryKey: 'uuid',
-      dataStore: new Memory(Type2)
+      dataStore: new RaceCar(Type2)
     });
 
     assert.notEqual(Type1.primaryKey, Type2.primaryKey);
@@ -96,10 +103,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     User.use(data, function() {
@@ -111,10 +120,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -135,10 +146,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user1 = new User();
@@ -150,10 +163,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -171,10 +186,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -186,11 +203,13 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
       basicProperties: ['rad'],
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -204,11 +223,13 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
         basicProperties: ['rad'],
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       var user = new User();
@@ -232,10 +253,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       var user = new User();
@@ -252,10 +275,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       var user = new User();
@@ -273,10 +298,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User),
+        dataStore: new RaceCar(User),
         basicProperties: ['username']
       });
 
@@ -294,10 +321,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User),
+        dataStore: new RaceCar(User),
         basicProperties: ['username']
       });
 
@@ -318,10 +347,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       User.on('change:username', function(instance, newValue, oldValue) {
@@ -338,10 +369,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       User.on('change', function(instance, property, newValue, oldValue) {
@@ -359,10 +392,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User),
+        dataStore: new RaceCar(User),
         basicProperties: ['username']
       });
 
@@ -380,10 +415,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'id',
-        dataStore: new Memory(User),
+        dataStore: new RaceCar(User),
         basicProperties: ['username']
       });
 
@@ -403,10 +440,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -421,10 +460,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -441,10 +482,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -461,10 +504,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -483,10 +528,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     var user = new User();
@@ -506,10 +553,12 @@ describe('Tubbs', function() {
       function User(data) {
         this.setData(data);
       }
+      User.prototype.clazz = 'user';
 
       Tubbs(User, {
+        clazz: 'user',
         primaryKey: 'uuid',
-        dataStore: new Memory(User)
+        dataStore: new RaceCar(User)
       });
 
       var user = new User();
@@ -533,10 +582,12 @@ describe('Tubbs', function() {
     function User(data) {
       this.setData(data);
     }
+    User.prototype.clazz = 'user';
 
     Tubbs(User, {
+      clazz: 'user',
       primaryKey: 'id',
-      dataStore: new Memory(User)
+      dataStore: new RaceCar(User)
     });
 
     User.fetch = function(cb) {

@@ -9,7 +9,11 @@
   },
   "main": "index",
   "scripts": { "test": "mocha" },
-  "dependencies": { "emitter-component": "*" },
+  "dependencies": { 
+    "emitter-component": "*",
+    "inflection": "*",
+    "underscore": "*"
+  },
   "devDependencies": { "mocha": "*" },
   "keywords": [
     "data",
