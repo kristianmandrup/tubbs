@@ -3,6 +3,8 @@ var assert = require('assert');
 var Memory = require('../lib/memory');
 var Tubbs = require('../index');
 
+// var Proto = require ('../lib/proto')
+
 // Export the require function for easy console debugger.
 if (typeof window != 'undefined') window.__require = require;
 
@@ -15,7 +17,6 @@ describe('Tubbs', function() {
 
     Tubbs(User, {
       primaryKey: 'id',
-      clazz: 'user'
       dataStore: new Memory(User)
     });
 

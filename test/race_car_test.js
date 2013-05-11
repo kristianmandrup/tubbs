@@ -1,7 +1,7 @@
 // This file will get compiled by Modulr and served as /tubbs.js
 var assert = require('assert');
-var RaceCar = require('../lib/race_car');
 var Tubbs = require('../index');
+var RaceCar = require('../lib/race_car');
 
 // Export the require function for easy console debugger.
 if (typeof window != 'undefined') window.__require = require;

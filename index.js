@@ -1,8 +1,14 @@
 var Emitter = require('emitter-component');
 var MemoryStore = require('./lib/memory');
 var _ = require( 'underscore' );
+var racer = require( 'racer' );
 
 module.exports = Tubbs;
+
+// expose model as global on window
+require('racer').ready(function(model) {
+  window.model = model;
+});
 
 String.prototype.camelize = function () {
   return this.replace (/(?:^|[-_])(\w)/g, function (_, c) {

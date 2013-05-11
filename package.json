@@ -12,7 +12,8 @@
   "dependencies": { 
     "emitter-component": "*",
     "inflection": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "racer": "*"
   },
   "devDependencies": { "mocha": "*" },
   "keywords": [
